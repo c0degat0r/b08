@@ -44,7 +44,7 @@ Feature: Test login functionality
     And I select "Investment" from the options
     
     
-    @accounts
+    
   Scenario: verify loan amount field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
@@ -55,3 +55,52 @@ Feature: Test login functionality
     And I click the "New" button
    And I enter the "Loan_Amount__c" field as "40000"
     
+     
+  Scenario: verify Annual Income field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   And I enter the "Annual_Income__c" field as "123456"
+    
+	    
+  Scenario: verify Phone Number field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   And I enter the "Phone__c" field as "0377582573"
+   
+      
+  Scenario: verify Email  field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   And I enter the "Email__c" field as "ahdceyt@gmail.com"
+   
+      @accounts    
+  Scenario: verify Address
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+    And I click the "Address (Country/Territory)" dropdown field
+    And I should see the following option
+      |   Afghanistan|
+      | Aland Islands |
+      |  Albania  |
+ 
+ 
