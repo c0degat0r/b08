@@ -53,9 +53,9 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-   And I enter the "Loan_Amount__c" field as "40000"
-   
-   Scenario: verify phone number field
+    And I enter the "Loan_Amount__c" field as "40000"
+
+  Scenario: verify phone number field
     And I enter the "Loan_Amount__c" field as "40000"
 
   Scenario: verify annual income field
@@ -66,9 +66,9 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-   	And I enter the "Phone__c" field as "7031234567"
-   	
-   	 Scenario: verify email field
+    And I enter the "Phone__c" field as "7031234567"
+
+  Scenario: verify email field
     And I enter the "Annual_Income__c" field as "123456"
 
   Scenario: verify Phone Number field
@@ -79,7 +79,7 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-   	And I enter the "Email__c" field as "defaultemail@gmail.com"
+    And I enter the "Email__c" field as "defaultemail@gmail.com"
     And I enter the "Phone__c" field as "0377582573"
 
   Scenario: verify Email  field
@@ -137,4 +137,3 @@ Feature: Test login functionality
     And I click the "province" dropdown field and enter "Alberta"
     And I select "Alberta" from the options
     And I click the "postalCode" dropdown field and enter "TTT343"
-
