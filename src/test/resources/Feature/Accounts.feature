@@ -23,7 +23,7 @@ Feature: Test login functionality
       | Married |
       | Other   |
 
-  @accounts
+
   Scenario: verify loan will be used for field is present
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
@@ -42,3 +42,16 @@ Feature: Test login functionality
     And I select "Business Launch" from the options
     And I click the "Loan will be used for" dropdown field
     And I select "Investment" from the options
+    
+    
+    @accounts
+  Scenario: verify loan amount field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   And I enter the "Loan_Amount__c" field as "40000"
+    
