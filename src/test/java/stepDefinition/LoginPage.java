@@ -107,8 +107,18 @@ public class LoginPage {
 			driver.findElement(
 					By.xpath("(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[2]"))
 					.click();
+		} else if (arg1.equalsIgnoreCase("Address")) {
+			driver.findElement(
+					By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]"))
+					.click();
 		}
 
+	}
+	
+	@Then("^I scroll down to the \"([^\"]*)\" field$")
+	public void i_scroll_down_to_the_field(String arg1) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]")));
 	}
 
 	@Then("^I should see the following option$")
@@ -127,6 +137,12 @@ public class LoginPage {
 	public void i_select_from_the_options(String arg1) {
 		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
 
+	}
+	
+	@Then("^I select \"([^\"]*)\"$")
+	public void i_select(String arg1) throws Throwable {
+		driver.findElement(By.xpath("//input[@name='country']")).sendKeys(arg1);
+		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
 	}
 
 	@Then("^It should fail$")
