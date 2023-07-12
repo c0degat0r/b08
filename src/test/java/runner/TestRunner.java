@@ -10,9 +10,11 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = ".", 
 			glue = "stepDefinition",
-			dryRun = false, 
+			dryRun = true, 
 			tags = "@accounts",
-			plugin = {"rerun:rerun/failed_scenario.txt"})
+			plugin = {"rerun:rerun/failed_scenario.txt","pretty",
+					 "html:target/cucumber-reports/cucumber-html",
+		             "json:target/cucumber-reports/cucumber.json"})
 public class TestRunner {
 
 }
