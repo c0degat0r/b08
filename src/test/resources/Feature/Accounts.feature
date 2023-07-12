@@ -54,4 +54,24 @@ Feature: Test login functionality
     And I click the "Applications" object
     And I click the "New" button
    And I enter the "Loan_Amount__c" field as "40000"
+   
+   Scenario: verify phone number field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   	And I enter the "Phone__c" field as "7031234567"
+   	
+   	 Scenario: verify email field
+    And I enter "batch08@codegator.us.basic" username
+    And I enter "Welcome2" password
+    When I click the login button
+    Then I should see the home page
+    And I search for "Applications" object
+    And I click the "Applications" object
+    And I click the "New" button
+   	And I enter the "Email__c" field as "defaultemail@gmail.com"
     
