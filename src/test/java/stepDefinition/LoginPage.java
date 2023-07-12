@@ -1,9 +1,6 @@
 package stepDefinition;
 
-import java.time.Duration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -13,9 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -35,7 +29,7 @@ public class LoginPage {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		driver = new ChromeDriver(options);
-//		driver.manage().window().maximize();
+	driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 	}
@@ -107,8 +101,18 @@ public class LoginPage {
 			driver.findElement(
 					By.xpath("(//button[@class='slds-combobox__input slds-input_faux slds-combobox__input-value'])[2]"))
 					.click();
+		} else if (arg1.equalsIgnoreCase("Address")) {
+			driver.findElement(
+					By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]"))
+					.click();
 		}
 
+	}
+	
+	@Then("^I scroll down to the \"([^\"]*)\" field$")
+	public void i_scroll_down_to_the_field(String arg1) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]")));
 	}
 
 	@Then("^I should see the following option$")
@@ -127,6 +131,23 @@ public class LoginPage {
 	public void i_select_from_the_options(String arg1) {
 		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
 
+	}
+	
+
+	@Then("^I select \"([^\"]*)\"$")
+	public void i_select(String arg1) throws Throwable {
+		driver.findElement(By.xpath("//input[@name='country']")).sendKeys(arg1);
+		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
+  }
+  
+	@Then("^I click the \"([^\"]*)\" dropdown field and enter \"([^\"]*)\"$")
+	public void i_click_the_dropdown_field_and_enter(String arg1, String arg2)  {
+		driver.findElement(By.xpath("//input[@name='" +arg1 + "']")).sendKeys(arg2);
+	}
+
+	@Then("^I click the \"([^\"]*)\" Tab and enter \"([^\"]*)\"$")
+	public void i_click_the_Tab_and_enter(String arg1, String arg2) {
+		 driver.findElement(By.xpath("//div/textarea[@name='"+ arg1 +"']")).sendKeys(arg2);
 	}
 
 	@Then("^It should fail$")
