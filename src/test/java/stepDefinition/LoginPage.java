@@ -30,9 +30,8 @@ public class LoginPage {
 	public void i_open_chrome_browser() {
 		String os = System.getProperty("os.name"); // Windows 10
 
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\codegator\\Desktop\\batch08_jar_files\\chromedriver_win32\\chromedriver.exe");
-
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\driver\\chromedriver.exe");
+				
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		driver = new ChromeDriver(options);
