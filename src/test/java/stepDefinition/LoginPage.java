@@ -1,9 +1,6 @@
 package stepDefinition;
 
-import java.time.Duration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -13,9 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
@@ -35,7 +29,7 @@ public class LoginPage {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		driver = new ChromeDriver(options);
-//		driver.manage().window().maximize();
+	driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 	}
@@ -128,7 +122,21 @@ public class LoginPage {
 		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
 
 	}
+	
+	@Then("^I click the \"([^\"]*)\" dropdown field and enter \"([^\"]*)\"$")
+	public void i_click_the_dropdown_field_and_enter(String arg1, String arg2)  {
+		driver.findElement(By.xpath("//input[@name='" +arg1 + "']")).sendKeys(arg2);
+	}
 
+	
+
+	@Then("^I click the \"([^\"]*)\" Tab and enter \"([^\"]*)\"$")
+	public void i_click_the_Tab_and_enter(String arg1, String arg2) {
+		 driver.findElement(By.xpath("//div/textarea[@name='"+ arg1 +"']")).sendKeys(arg2);
+	}
+
+	
+	
 	@Then("^It should fail$")
 	public void it_should_fail() {
 
