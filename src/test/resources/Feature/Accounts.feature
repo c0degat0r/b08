@@ -42,8 +42,9 @@ Feature: Test login functionality
     And I select "Business Launch" from the options
     And I click the "Loan will be used for" dropdown field
     And I select "Investment" from the options
-    
-    
+    And I scroll down to the "Address" field
+    And I click the "Address" dropdown field
+    And I select "Canada"
   
   Scenario: verify loan amount field
     And I enter "batch08@codegator.us.basic" username
@@ -103,3 +104,4 @@ Feature: Test login functionality
       And I select "Alberta" from the options 
       And I click the "postalCode" dropdown field and enter "TTT343"
    
+
