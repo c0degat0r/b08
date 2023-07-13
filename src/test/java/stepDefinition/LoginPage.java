@@ -24,12 +24,12 @@ public class LoginPage {
 	public void i_open_chrome_browser() {
 		String os = System.getProperty("os.name"); // Windows 10
 
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\driver\\chromedriver.exe");
-				
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
+
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		driver = new ChromeDriver(options);
-	driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
 	}
@@ -108,11 +108,12 @@ public class LoginPage {
 		}
 
 	}
-	
+
 	@Then("^I scroll down to the \"([^\"]*)\" field$")
 	public void i_scroll_down_to_the_field(String arg1) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]")));
+		js.executeScript("arguments[0].scrollIntoView();", driver.findElement(
+				By.xpath("(//input[@class='slds-combobox__input slds-input slds-combobox__input-value'])[1]")));
 	}
 
 	@Then("^I should see the following option$")
@@ -132,22 +133,21 @@ public class LoginPage {
 		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
 
 	}
-	
 
 	@Then("^I select \"([^\"]*)\"$")
 	public void i_select(String arg1) throws Throwable {
 		driver.findElement(By.xpath("//input[@name='country']")).sendKeys(arg1);
 		driver.findElement(By.xpath("//span[@title='" + arg1 + "']")).click();
-  }
-  
+	}
+
 	@Then("^I click the \"([^\"]*)\" dropdown field and enter \"([^\"]*)\"$")
-	public void i_click_the_dropdown_field_and_enter(String arg1, String arg2)  {
-		driver.findElement(By.xpath("//input[@name='" +arg1 + "']")).sendKeys(arg2);
+	public void i_click_the_dropdown_field_and_enter(String arg1, String arg2) {
+		driver.findElement(By.xpath("//input[@name='" + arg1 + "']")).sendKeys(arg2);
 	}
 
 	@Then("^I click the \"([^\"]*)\" Tab and enter \"([^\"]*)\"$")
 	public void i_click_the_Tab_and_enter(String arg1, String arg2) {
-		 driver.findElement(By.xpath("//div/textarea[@name='"+ arg1 +"']")).sendKeys(arg2);
+		driver.findElement(By.xpath("//div/textarea[@name='" + arg1 + "']")).sendKeys(arg2);
 	}
 
 	@Then("^It should fail$")
