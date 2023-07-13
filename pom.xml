@@ -20,7 +20,7 @@
 				<version>2.18.1</version>
 				<configuration>
 					<includes>
-						<include>**/**/*Runner.java</include>
+						<include>**/**/RegressionRunner.java</include>
 					</includes>
 				</configuration>
 			</plugin>
