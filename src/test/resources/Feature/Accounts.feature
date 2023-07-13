@@ -23,7 +23,6 @@ Feature: Test login functionality
       | Married |
       | Other   |
 
-
   Scenario: verify loan will be used for field is present
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
@@ -45,7 +44,7 @@ Feature: Test login functionality
     And I scroll down to the "Address" field
     And I click the "Address" dropdown field
     And I select "Canada"
-  
+
   Scenario: verify loan amount field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
@@ -57,6 +56,9 @@ Feature: Test login functionality
    And I enter the "Loan_Amount__c" field as "40000"
    
    Scenario: verify phone number field
+    And I enter the "Loan_Amount__c" field as "40000"
+
+  Scenario: verify annual income field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -67,6 +69,9 @@ Feature: Test login functionality
    	And I enter the "Phone__c" field as "7031234567"
    	
    	 Scenario: verify email field
+    And I enter the "Annual_Income__c" field as "123456"
+
+  Scenario: verify Phone Number field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -75,9 +80,12 @@ Feature: Test login functionality
     And I click the "Applications" object
     And I click the "New" button
    	And I enter the "Email__c" field as "defaultemail@gmail.com"
-    
-     
-  Scenario: verify annual income field
+    And I enter the "Phone__c" field as "0377582573"
+
+  Scenario: verify Email  field
+    And I enter the "Annual_Income__c" field as "400000"
+
+  Scenario: verify phone number field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -85,9 +93,9 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-      And I enter the "Annual_Income__c" field as "400000"
-   
-   Scenario: verify phone number field
+    And I enter the "Phone__c" field as "4033333333"
+
+  Scenario: verify email field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -95,9 +103,10 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-      And I enter the "Phone__c" field as "4033333333"
-      
-      Scenario: verify email field
+    And I enter the "Email__c" field as "ahdceyt@gmail.com"
+
+  @accounts
+  Scenario: verify Address
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -105,10 +114,15 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-      And I enter the "Email__c" field as "4033333333"
-      
-        @accounts
-      Scenario: verify email field
+    And I click the "Address (Country/Territory)" dropdown field
+    And I should see the following option
+      | Afghanistan   |
+      | Aland Islands |
+      | Albania       |
+    And I enter the "Email__c" field as "4033333333"
+
+  @accounts
+  Scenario: verify email field
     And I enter "batch08@codegator.us.basic" username
     And I enter "Welcome2" password
     When I click the login button
@@ -116,12 +130,11 @@ Feature: Test login functionality
     And I search for "Applications" object
     And I click the "Applications" object
     And I click the "New" button
-     And I click the "country" dropdown field and enter "Canada"
-     And I select "Canada" from the options 
-     And I click the "street" Tab and enter "404 2SW"
-   And I click the "city" dropdown field and enter "Calgary"
-   And I click the "province" dropdown field and enter "Alberta"
-      And I select "Alberta" from the options 
-      And I click the "postalCode" dropdown field and enter "TTT343"
-   
+    And I click the "country" dropdown field and enter "Canada"
+    And I select "Canada" from the options
+    And I click the "street" Tab and enter "404 2SW"
+    And I click the "city" dropdown field and enter "Calgary"
+    And I click the "province" dropdown field and enter "Alberta"
+    And I select "Alberta" from the options
+    And I click the "postalCode" dropdown field and enter "TTT343"
 
